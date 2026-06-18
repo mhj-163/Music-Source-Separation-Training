@@ -74,3 +74,12 @@ Scripts/
 
 results/
 wandb/
+
+# test
+input/
+checkpoints/
+separation_results/
+
+*.wav
+*.pkf
+*.csv
