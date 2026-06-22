@@ -48,10 +48,17 @@ echo.
 REM --- reset RTF results from previous runs ---
 if exist rtf_results.csv del rtf_results.csv
 
+REM Vocal models
 @REM call :run_model "mdx23c" "mdx23c" "configs/config_vocals_mdx23c.yaml" "model_vocals_mdx23c_sdr_10.17.ckpt" "https://github.com/ZFTurbo/Music-Source-Separation-Training/releases/download/v1.0.0/model_vocals_mdx23c_sdr_10.17.ckpt"
 @call :run_model "htdemucs" "htdemucs" "configs/config_vocals_htdemucs.yaml" "model_vocals_htdemucs_sdr_8.78.ckpt" "https://github.com/ZFTurbo/Music-Source-Separation-Training/releases/download/v1.0.0/model_vocals_htdemucs_sdr_8.78.ckpt"
 @REM call :run_model "bs_roformer" "bs_roformer" "configs/viperx/model_bs_roformer_ep_317_sdr_12.9755.yaml" "model_bs_roformer_ep_317_sdr_12.9755.ckpt" "https://github.com/TRvlvr/model_repo/releases/download/all_public_uvr_models/model_bs_roformer_ep_317_sdr_12.9755.ckpt"
 @REM call :run_model "mel_band_roformer" "mel_band_roformer" "configs/KimberleyJensen/config_vocals_mel_band_roformer_kj.yaml" "MelBandRoformer.ckpt" "https://huggingface.co/KimberleyJSN/melbandroformer/resolve/main/MelBandRoformer.ckpt"
+
+REM Multi-stem models (4-stem: bass / drums / vocals / other)
+@call :run_model "mdx23c_multistem" "mdx23c" "configs/config_musdb18_mdx23c.yaml" "model_mdx23c_ep_168_sdr_7.0207.ckpt" "https://github.com/ZFTurbo/Music-Source-Separation-Training/releases/download/v1.0.1/model_mdx23c_ep_168_sdr_7.0207.ckpt"
+@call :run_model "htdemucs_multistem" "htdemucs" "configs/config_musdb18_htdemucs.yaml" "model_htdemucs_955717e8.th" "https://dl.fbaipublicfiles.com/demucs/hybrid_transformer/955717e8-8726e21a.th"
+@call :run_model "bs_roformer_multistem" "bs_roformer" "configs/config_bs_roformer_384_8_2_485100.yaml" "model_bs_roformer_ep_17_sdr_9.6568.ckpt" "https://github.com/ZFTurbo/Music-Source-Separation-Training/releases/download/v1.0.12/model_bs_roformer_ep_17_sdr_9.6568.ckpt"
+@call :run_model "mel_band_roformer_multistem" "mel_band_roformer" "configs/model_mel_band_roformer_ep_168_sdr_7.8127_config_mel_256_6_1_88200.yaml" "model_mel_band_roformer_ep_168_sdr_7.8127.ckpt" "https://github.com/ZFTurbo/Music-Source-Separation-Training/releases/download/v1.0.11/model_mel_band_roformer_ep_168_sdr_7.8127.ckpt"
 
 echo ==========================================================================
 echo Done. Listen to vocals/instrumental in each separation_results folder
